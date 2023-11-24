@@ -5,7 +5,7 @@
 #include <cmath>
 #include <thread>
 #include <Windows.h>
-
+#include <vector>
 #include <fstream>
 
 #include <algorithm>
@@ -1132,6 +1132,238 @@ void dz4_9() {
         cout << number[i];
 }
 
+void dz5_1() {
+    int a, b;
+    cout << "Ведите числа для нахождения НОД:" << endl;
+    cin >> a >> b;
+    while (a != 0 and b != 0) {
+        if (a > b)
+            a %= b;
+        else
+            b %= a;
+    }
+    cout << a + b << endl;
+}
+
+void dz5_2() {
+    int n, m, j;
+    cout << "До какого числа найти простые числа?" << endl;
+    cin >> n;
+    int *a = new int[n];
+    for (int i = 0; i < n; i++)
+        a[i] = i;
+    a[1] = 0;
+    m = 2;
+    while (m < n) {
+        if (a[m] != 0) {
+            j = m * 2;
+            while (j < n) {
+                a[j] = 0;
+                j += m;
+            }
+             m++;
+        }
+        else
+            m++;
+    }
+    for (int i = 0; i < n; i++)
+        if (a[i] != 0)
+            cout << a[i] << " ";
+}
+
+bool f(char c, string a) {
+    for (char b : a)
+        if (b == c)
+            return true;
+    return false;
+}
+
+void dz5_3_23() {
+    ofstream f1;
+    string line, alphabit = "bcdfghjklmnpqrstvwxz", b;
+    int mx = 0;
+    map <char, int> m;
+    f1.open("file1.txt");
+    if (f1.is_open())
+        f1 << ";;;;;;;;bbb;;;;aaa;;jkdshfgjksdfjgbsSDKLJFGNKSDLJFGNDSFJKGfffNJK";
+    f1.close();
+    ifstream f2 ("file1.txt");
+    if (f2.is_open())
+        while (getline(f2, line)) {
+            for (char c : line) {
+                c = tolower(c);
+                m[c]++;
+                if (m[c] > mx && f(c, alphabit)) {
+                    mx = m[c];
+                    b = c;
+                }
+            }
+        }
+    f2.close();
+    cout << b;
+}
+
+void dz5_3_17() {
+    string line, words = "", s;
+    ofstream f1;
+    int n = 0;
+    f1.open("file2.txt");
+    if (f1.is_open())
+        f1 << "dsjgn sdjkfby uydfsgv sdaokfk ysdgfvyu sdnfj sydgvuy dslknflk yusfgvbuy";
+    f1.close();
+    ifstream f2;
+    f2.open("file2.txt");
+    while (getline(f2, line)) {
+        words += (line + " ");
+    }
+    f2.close();
+    string lst[9999];
+    for (char c : words) {
+        if (c != ' ') {
+            s += c;
+        }
+        else {
+            lst[n] = s;
+            n++;
+            s = "";
+        }
+    }
+    sort(lst, lst + n);
+    for (int i = 0; i < n; i++)
+        cout << lst[i] << " ";
+}
+
+int to10(char c) {
+    string num = "0123456789ABCDEF";
+    for (int i = 0; i < num.length(); i++) {
+        if (c == num[i])
+            return i;
+    }
+}
+
+int from10(int c) {
+    string num = "0123456789ABCDEF";
+    return num[c];
+}
+
+void dz5_4_23() {
+    int n, raz, num10 = 0;
+    string num3, num6, a;
+    cin >> n;
+    string* a3 = new string[n];
+    string* b6 = new string[n];
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        a3[i] = a;
+    }
+    for (int i = 0; i < n; i++) {
+        num3 = a3[i];
+        num6 = "";
+        num10 = 0;
+        raz = num3.length() - 1;
+        for (char c : num3) {
+            num10 += (to10(c) * pow(3, raz));
+            raz--;
+        }
+        while (num10 > 0) {
+            num6 += from10(num10 % 6);
+            num10 /= 6;
+        }
+        reverse(num6.begin(), num6.end());
+        b6[i] = num6;
+    }
+    for (int i = 0; i < n; i++)
+        cout << b6[i] << " ";
+}
+
+double grade(double a, int n) {
+    if (n == 0)
+        return 1;
+    for (int i = 0; i < n - 1; i++)
+        a *= a;
+    return a;
+}
+
+void dz5_4_17() {
+    double E, y = 0;
+    int n = 1;
+    cin >> E;
+    while (1 / grade(3, n) >= E) {
+        y += (1 / grade(3, n) * grade(cos(grade(3, n - 1)), 3));
+        n++;
+    }
+    cout << y;
+}
+
+int sm(int a[]) {
+    int s = 0;
+    for (int i = 0; i < 3; i++)
+        s += a[i];
+    return s;
+}
+
+void dz5_5_23() {
+    int result[10][3], a, b, s;
+    string countries[10]{"получила Австрия", "получила Германия", "получила Канада", "получил Китай", "получила Корея", "получила Норвегия", "получила Россия", "получил США", "получила Финляндия", "получила Япония"};
+    ofstream f;
+    f.open("file.xls");
+    for (int i = 0; i < 10; i++) {
+        b = 7;
+        cout << "Сколько медалей " << countries[i] << endl;
+        for (int j = 0; j < 3; j++) {
+            cin >> a;
+            result[i][j] = a * b;
+            b--;
+        }
+    }
+    for (int i = 1; i < 10; i++)
+        for (int j = i; j > 0 && (sm(result[j - 1]) < sm(result[j])); j--) {
+            swap(result[j], result[j - 1]);
+            swap(countries[j], countries[j - 1]);
+        }
+    f << "\tСтрана\t" << "Золото\t" << "Серебро\t" << "Бронза\t" << "Всего\t" << "Очков" << endl;
+    for (int i = 0; i < 10; i++) {
+        if (i != 5 && i != 8)
+            f << (i + 1) << "\t" << countries[i].substr(9, countries[i].length()) << "\t";
+        else 
+            f << (i + 1) << "\t" << countries[i].substr(8, countries[i].length()) << "\t";
+        s = 0;
+        b = 7;
+        for (int j = 0; j < 3; j++) {
+            f << result[i][j] / b << "\t";
+            s += result[i][j] / b;
+            b--;
+        }
+        f << s << "\t" << sm(result[i]) << endl;
+    }
+    f.close();
+}
+
+void dz5_5_51() {
+    int n, m, a, s;
+    cin >> n >> m;
+    int** mas = new int * [n];
+    for (int i = 0; i < n; i++)
+        mas[i] = new int[m];
+    for (int i = 0; i < n; i++) 
+        for (int j = 0; j < m; j++) {
+            cin >> a;
+            mas[i][j] = a;
+        }
+    for (int i = 0; i < n; i++) {
+        s = 0;
+        for (int j = 0; j < m; j++) {
+            s += mas[i][j];
+            cout << mas[i][j];
+            if (j != m - 1)
+                cout << " + ";
+            else
+                cout << " ";
+        }
+        cout << "=" << " " << s << endl;
+    }
+}
+
 int main() {
     setlocale(LC_ALL, "Russian");
     //dz2_1();
@@ -1153,5 +1385,13 @@ int main() {
     //dz4_7();
     //dz4_8();
     //dz4_9();
+    //dz5_1();
+    //dz5_2();
+    //dz5_3_23();
+    //dz5_3_17();
+    //dz5_4_23();
+    //dz5_4_17();
+    //dz5_5_23();
+    //dz5_5_51();
     return 0;
 }

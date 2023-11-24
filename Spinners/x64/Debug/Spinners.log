@@ -1,0 +1,4 @@
+﻿  Spinners.cpp
+C:\Users\Polie\source\project\Spinners\Spinners.cpp(55,19): warning C4156: удаление массива без использования формы оператора "delete", предусмотренной для массива; подставлена предусмотренная форма оператора
+C:\Users\Polie\source\project\Spinners\Spinners.cpp(55,19): warning C4154: удаление массива; выполнено преобразование к указателю
+  Spinners.vcxproj -> C:\Users\Polie\source\project\Spinners\x64\Debug\Spinners.exe

@@ -1,9 +1,14 @@
-﻿  Procedur_programming.cpp
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(385,21): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(402,21): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(403,22): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(893,45): warning C4305: +=: усечение из "double" в "float"
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(1040,32): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(1072,33): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
-C:\Users\Polie\source\project\Procedur_programming\Procedur_programming.cpp(1133,5): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  Procedur_programming.vcxproj -> C:\Users\Polie\source\project\Procedur_programming\x64\Debug\Procedur_programming.exe
+﻿  Balls.cpp
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Balls.cpp(4,1): fatal error C1004: непредвиденное обнаружение конца файла
+  Procedur_programming.cpp
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(385,21): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(402,21): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(403,22): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(893,45): warning C4305: +=: усечение из "double" в "float"
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1038,32): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1070,33): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1131,5): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1263,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1265,31): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+C:\Users\Polie\source\project\Procedur\Procedur_programming\Procedur_programming.cpp(1242): warning C4715: to10: значение возвращается не при всех путях выполнения
