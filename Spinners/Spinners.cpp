@@ -54,9 +54,17 @@ void baza80() {
     cout << puck(numbers);
 }
 
+void baza90() {
+    int n, k;
+    cin >> n >> k;
+    string s[1000];
+
+}
+
 int main()
 {
-    spinners();
+    //spinners();
     //notspinners();
     //baza80();
+    baza90();
 }
