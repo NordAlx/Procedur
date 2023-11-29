@@ -1,1 +1,2 @@
 C:\Users\Polie\source\project\Spinners\x64\Debug\Spinners.exe
+C:\Users\Polie\source\repos\Procedur\Spinners\x64\Debug\Spinners.exe

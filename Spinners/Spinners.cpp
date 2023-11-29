@@ -6,9 +6,9 @@
 using namespace std;
 
 void spinners() {
-    int a, b, c, n = 0, st = 0, end;
+    long long a, b, c, n = 0, st = 0, end;
     cin >> a >> b >> c;
-    end = 400000000;
+    end = c + 2;
     n = (end + st) / 2;
     if (a + b > c)
         cout << 0;
@@ -28,36 +28,35 @@ void spinners() {
 }
 
 void notspinners() {
-    /*int n, m, ans_x = 0, ans_y = 0;
+    int n, m, ans_x = 0, ans_y = 0;
     cin >> n >> m;
     for (int x = 0; x < n; x++)
         ans_x += n - x;
     for (int y = 0; y < m; y++)
         ans_y += m - y;
-    cout << ans_x * ans_y;*/
-    int n, m;
+    cout << ans_x * ans_y;
+    /*int n, m;
     cin >> n >> m;
-    cout << (n * (n + 1) / 2 * m * (m + 1) / 2);
+    cout << (n * (n + 1) / 2 * m * (m + 1) / 2);*/
 }
 
-string puck(int* a, int k = 0, string s = "", int sm = 0) {
-    if (k == 8 and sm == 1989)
+string puck(int a[], int k = 0, string s = "", int sm = 0) {
+    if (k == 9 and sm == 1989)
         return s;
-    else if (k < 8) {
-        return puck(a, k++, s + to_string(a[k]) + "+", sm + a[k]) != "f" ? puck(a, k++, s + to_string(a[k]) + "+", sm + a[k]) : puck(a, k++, s + to_string(a[k]) + "-", sm - a[k]);
+    else if (k < 9) {
+        return puck(a, k + 1, s + "+" + to_string(a[k]), sm + a[k]) != "pen" ? puck(a, k + 1, s + "+" + to_string(a[k]), sm + a[k]) : puck(a, k + 1, s + "-" + to_string(a[k]), sm - a[k]);
     }
-    return "f";
+    return "pen";
 }
 
 void baza80() {
-    int numbers[9] = { 12894, 4193, 9510, 8653, 4381, 2546, 1158, 8654, 2587 };
+    int numbers[9] = { 12894, 4193, 9510, 8653, 4381, 2546, 1158, 8645, 2587 };
     cout << puck(numbers);
-    delete numbers;
 }
 
 int main()
 {
-    //spinners();
+    spinners();
     //notspinners();
     //baza80();
 }

@@ -1,1 +1,2 @@
 C:\Users\Polie\source\project\Balls\x64\Debug\Balls.exe
+C:\Users\Polie\source\repos\Procedur\Balls\x64\Debug\Balls.exe
