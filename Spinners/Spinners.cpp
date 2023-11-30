@@ -54,11 +54,61 @@ void baza80() {
     cout << puck(numbers);
 }
 
+int a[100];
+
+void dec(int n, int m, int i, int k) {
+    if (k == 0) {
+        if (n == 1) {
+            int j;
+            for (j = 0; j < i; j++)
+            {
+                cout << a[j] << " ";
+            }
+            cout << endl;
+        }
+        else
+        {
+            if (n % m == 0)
+            {
+                a[i] = m;
+                dec(n / m, m, i + 1, k);
+            }
+
+            if (m > 2) {
+                dec(n, m - 1, i, k);
+            }
+        }
+        return;
+    }
+    else {
+        if (n == 1 && i == k) {
+            int j;
+            for (j = 0; j < i; j++)
+            {
+                cout << a[j] << " ";
+            }
+            cout << endl;
+        }
+        else
+        {
+            if (n % m == 0)
+            {
+                a[i] = m;
+                dec(n / m, m, i + 1, k);
+            }
+
+            if (m > 2) {
+                dec(n, m - 1, i, k);
+            }
+        }
+        return;
+    }
+}
+
 void baza90() {
     int n, k;
     cin >> n >> k;
-    string s[1000];
-
+    dec(n, n, 0, k);
 }
 
 int main()
